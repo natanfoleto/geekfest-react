@@ -1,0 +1,70 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --gray-100: #e1e1e6;
+  --gray-300: #c4c4cc;
+  --gray-400: #8d8d99;
+  --gray-500: #737380;
+  --gray-600: #323238;
+  --gray-700: #29292e;
+  --gray-800: #202024;
+  --gray-900: #121214;
+
+  --yellow-100: #fdf8c0;
+  --yellow-300: #fef371;
+  --yellow-500: #d9ce55;
+  --yellow-700: #ffeb13;
+  --yellow-900: #fde800;
+
+  --purple-100: #9c62ff;
+  --purple-300: #713fef;
+  --purple-500: #5C30C9;
+  --purple-700: #371f72;
+
+  --blue-100: #387aff;
+  --blue-300: #4863F7;
+  --blue-400: #3950d0;
+  --blue-500: #3838FC;
+
+  --blue-aqua-100: #85f7ff;
+  --blue-aqua-300: #38f2ff;
+  --blue-aqua-400: #00eeff;
+  --blue-aqua-500: #00ddff;
+
+  --red-300: #d93030;
+  --red-500: #df1414;
+
+  --linear-gradient: linear-gradient(62deg, var(--gray-700) 25%, var(--purple-500) 300%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--gray-600);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--gray-400)
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+body, input, textarea, button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  html { font-size: 87.5%; }
+}

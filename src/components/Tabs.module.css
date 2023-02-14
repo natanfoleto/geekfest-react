@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  height: 100%;
+  background: var(--gray-700);  
+  border-top: 1px solid rgb(70, 70, 70);
+  border-bottom: 1px solid rgb(70, 70, 70);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  max-width: 15%;
+  border-right: 1px solid rgb(70, 70, 70);
+}
+
+.button {
+  width: 250px;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  background: transparent;
+  color: var(--gray-500);
+  cursor: pointer;
+}
+
+.buttonActive {
+  width: 250px;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  background: var(--purple-300);
+  color: var(--gray-100);
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  width: 85%;
+  background: var(--white);
+  color: var(--gray-300);
+}
