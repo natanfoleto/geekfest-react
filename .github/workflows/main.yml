@@ -1,9 +1,9 @@
 on:
   push:
     branches:
-      - develop
+      - main
 
-name: Deployment
+name: Deployment to main
 
 jobs:
   build:
@@ -40,6 +40,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /var/www/ctech-react
+          cd /var/www/geekfest-react
           yarn install
           yarn build
