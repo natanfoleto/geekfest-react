@@ -5,6 +5,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "start": "pm2 serve dist 5173 --spa",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
