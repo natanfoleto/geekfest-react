@@ -41,7 +41,10 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd /var/www/geekfest-react
+          fuser -n tcp -k 5173
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          yarn
+          pm2 kill -a
+          yarn install
           yarn build
+          yarn start

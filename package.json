@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "start": "pm2 serve dist 5173 --spa",
+    "start": "pm2 serve dist 5173 --spa --name=geekfest-react",
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
