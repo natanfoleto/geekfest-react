@@ -333,6 +333,7 @@ export function TabPermission() {
           onSubmit={selectedPermission ? handleSubmitEdit : handleSubmitAdd}
           className={styles.form}
         >
+          <label>Nome</label>
           <input
             name="name"
             type="text"
@@ -343,6 +344,7 @@ export function TabPermission() {
             required
           />
 
+          <label>Poderes</label>
           <input
             name="lore"
             type="text"
@@ -353,6 +355,7 @@ export function TabPermission() {
             required
           />
 
+          <label>Tipo</label>
           <input
             name="type"
             type="text"

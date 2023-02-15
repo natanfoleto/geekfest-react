@@ -5,6 +5,7 @@ export interface IEvent {
   name: string;
   notes: string;
   banner_url: string;
+  rules_url: string;
   type: number;
   min: number;
   max: number;
@@ -14,6 +15,7 @@ export interface ICreateEventRequest {
   name: string;
   notes: string;
   bannerUrl: string;
+  rulesUrl: string;
   type: number;
   min: number;
   max: number;
@@ -30,6 +32,7 @@ export interface IUpdateEventRequest {
   name: string;
   notes: string;
   bannerUrl: string;
+  rulesUrl: string;
   type: number;
   min: number;
   max: number;

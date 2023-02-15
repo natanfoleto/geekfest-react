@@ -120,6 +120,7 @@
   justify-content: space-between;
   background: var(--gray-600);
   padding: 2rem;
+  gap: 1rem;
   border-radius: 6px;
 }
 

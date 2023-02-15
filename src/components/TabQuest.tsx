@@ -332,6 +332,7 @@ export function TabQuest() {
           onSubmit={selectedQuest ? handleSubmitEdit : handleSubmitAdd}
           className={styles.form}
         >
+          <label>Nome</label>
           <input
             name="name"
             type="text"
@@ -342,6 +343,7 @@ export function TabQuest() {
             required
           />
 
+          <label>Objetivo</label>
           <input
             name="objective"
             type="text"

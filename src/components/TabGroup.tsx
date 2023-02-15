@@ -371,6 +371,7 @@ export function TabGroup() {
           onSubmit={selectedGroup ? handleSubmitEdit : handleSubmitAdd}
           className={styles.form}
         >
+          <label>Nome</label>
           <input
             name="name"
             type="text"

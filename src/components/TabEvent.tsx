@@ -32,6 +32,7 @@ export function TabEvent() {
   const [name, setName] = useState("");
   const [notes, setNotes] = useState("");
   const [bannerUrl, setBannerUrl] = useState("");
+  const [rulesUrl, setRulesUrl] = useState("");
   const [type, setType] = useState(0);
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(0);
@@ -70,6 +71,10 @@ export function TabEvent() {
       value: null,
       matchMode: FilterMatchMode.STARTS_WITH,
     },
+    rules_url: {
+      value: null,
+      matchMode: FilterMatchMode.STARTS_WITH,
+    },
   });
 
   useEffect(() => {
@@ -104,6 +109,7 @@ export function TabEvent() {
       name,
       notes,
       bannerUrl,
+      rulesUrl,
       type,
       min,
       max,
@@ -128,6 +134,7 @@ export function TabEvent() {
         name,
         notes,
         bannerUrl,
+        rulesUrl,
         type,
         min,
         max,
@@ -174,6 +181,11 @@ export function TabEvent() {
     setBannerUrl(event.target.value);
   }
 
+  function handleRulesUrlChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
+    setRulesUrl(event.target.value);
+  }
+
   function handleTypeChange(event: ChangeEvent<HTMLSelectElement>) {
     event.target.setCustomValidity("");
     setType(Number(event.target.value));
@@ -199,6 +211,7 @@ export function TabEvent() {
     setMax(value.max);
     setNotes(value.notes);
     setBannerUrl(value.banner_url);
+    setRulesUrl(value.rules_url);
   }
 
   function unselectEvent() {
@@ -209,6 +222,7 @@ export function TabEvent() {
     setName("");
     setNotes("");
     setBannerUrl("");
+    setRulesUrl("");
   }
 
   function clearState() {
@@ -259,6 +273,10 @@ export function TabEvent() {
         matchMode: FilterMatchMode.STARTS_WITH,
       },
       banner_url: {
+        value: null,
+        matchMode: FilterMatchMode.STARTS_WITH,
+      },
+      rules_url: {
         value: null,
         matchMode: FilterMatchMode.STARTS_WITH,
       },
@@ -340,6 +358,7 @@ export function TabEvent() {
           "max",
           "notes",
           "banner_url",
+          "rules_url",
         ]}
         selection={selectedEvent}
         onSelectionChange={(e) => selectEvent(e)}
@@ -383,14 +402,14 @@ export function TabEvent() {
           key="min"
           field="min"
           header="Mínimo"
-          style={{ width: "20%" }}
+          style={{ width: "10%" }}
         />
         <Column
           align="center"
           key="max"
           field="max"
           header="Máximo"
-          style={{ width: "20%" }}
+          style={{ width: "10%" }}
         />
         <Column
           key="notes"
@@ -403,7 +422,13 @@ export function TabEvent() {
           key="banner_url"
           field="banner_url"
           header="URL do Banner"
-          style={{ width: "30%" }}
+          style={{ width: "25%" }}
+        />
+        <Column
+          key="rules_url"
+          field="rules_url"
+          header="URL das Regras"
+          style={{ width: "25%" }}
         />
       </DataTable>
 
@@ -426,6 +451,7 @@ export function TabEvent() {
           onSubmit={selectedEvent ? handleSubmitEdit : handleSubmitAdd}
           className={styles.form}
         >
+          <label>Nome</label>
           <input
             name="name"
             type="text"
@@ -436,6 +462,7 @@ export function TabEvent() {
             required
           />
 
+          <label>Descrição</label>
           <input
             name="notes"
             type="text"
@@ -446,7 +473,7 @@ export function TabEvent() {
             required
           />
 
-          <label>Tipo do evento</label>
+          <label>Tipo do Evento</label>
           <select
             name="type"
             value={type}
@@ -459,7 +486,7 @@ export function TabEvent() {
             <option value={2}>Time</option>
           </select>
 
-          <label>Mínimo de participantes</label>
+          <label>Mínimo de Participantes</label>
           <input
             name="min"
             type="number"
@@ -469,7 +496,7 @@ export function TabEvent() {
             required
           />
 
-          <label>Máximo de participantes</label>
+          <label>Máximo de Participantes</label>
           <input
             name="max"
             type="number"
@@ -480,6 +507,17 @@ export function TabEvent() {
             required
           />
 
+          <label>Regras do Evento</label>
+          <input
+            name="rulesUrl"
+            type="text"
+            value={rulesUrl}
+            className={styles.input}
+            onChange={handleRulesUrlChange}
+            placeholder="Link das regras do evento"
+          />
+
+          <label>Link do Banner</label>
           <input
             name="bannerUrl"
             type="text"

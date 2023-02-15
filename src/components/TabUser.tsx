@@ -419,17 +419,21 @@ export function TabUser() {
           className={styles.form}
         >
           {!selectedUser ? (
-            <input
-              name="username"
-              type="text"
-              value={username}
-              className={styles.input}
-              onChange={handleUsernameChange}
-              placeholder="Digite o username"
-              required
-            />
+            <>
+              <label>Username</label>
+              <input
+                name="username"
+                type="text"
+                value={username}
+                className={styles.input}
+                onChange={handleUsernameChange}
+                placeholder="Digite o username"
+                required
+              />
+            </>
           ) : null}
 
+          <label>Nome</label>
           <input
             name="name"
             type="text"
@@ -460,54 +464,64 @@ export function TabUser() {
           ) : null}
 
           {!selectedUser ? (
-            <input
-              name="birthDate"
-              type="date"
-              value={birthDate}
-              onChange={handleDateChange}
-              min="1900-01-01"
-              max="2022-12-31"
-              required
-              className={styles.input}
-            />
+            <>
+              <label>Data de Nascimento</label>
+              <input
+                name="birthDate"
+                type="date"
+                value={birthDate}
+                onChange={handleDateChange}
+                min="1900-01-01"
+                max="2022-12-31"
+                required
+                className={styles.input}
+              />
+            </>
           ) : null}
 
           {!selectedUser ? (
-            <input
-              name="password"
-              type="password"
-              pattern="[0-9]*"
-              inputMode="numeric"
-              minLength={4}
-              maxLength={4}
-              value={password}
-              onChange={handlePasswordChange}
-              className={styles.input}
-              placeholder="Senha secreta"
-              required
-              onKeyPress={(e) => {
-                if (!/[0-9]/.test(e.key)) e.preventDefault();
-              }}
-            />
+            <>
+              <label>Senha</label>
+              <input
+                name="password"
+                type="password"
+                pattern="[0-9]*"
+                inputMode="numeric"
+                minLength={4}
+                maxLength={4}
+                value={password}
+                onChange={handlePasswordChange}
+                className={styles.input}
+                placeholder="Senha secreta"
+                required
+                onKeyPress={(e) => {
+                  if (!/[0-9]/.test(e.key)) e.preventDefault();
+                }}
+              />
+            </>
           ) : null}
 
           {!selectedUser ? (
-            <input
-              name="confirmPassword"
-              type="password"
-              pattern="[0-9]*"
-              inputMode="numeric"
-              minLength={4}
-              maxLength={4}
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-              className={styles.input}
-              placeholder="Confirme a senha"
-              required
-              onKeyPress={(e) => {
-                if (!/[0-9]/.test(e.key)) e.preventDefault();
-              }}
-            />
+            <>
+              <label>Confirmar Senha</label>
+
+              <input
+                name="confirmPassword"
+                type="password"
+                pattern="[0-9]*"
+                inputMode="numeric"
+                minLength={4}
+                maxLength={4}
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                className={styles.input}
+                placeholder="Confirme a senha"
+                required
+                onKeyPress={(e) => {
+                  if (!/[0-9]/.test(e.key)) e.preventDefault();
+                }}
+              />
+            </>
           ) : null}
 
           <div className={styles.subimitDialog}>

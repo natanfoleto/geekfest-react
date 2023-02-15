@@ -2,6 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: "http://188.191.97.76:3333",
+  // baseURL: "http://localhost:3333",
   headers: {
     Authorization: `Bearer ${JSON.parse(
       localStorage.getItem("token") as string

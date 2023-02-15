@@ -28,6 +28,10 @@ function Events() {
     navigate(path);
   }
 
+  function handleRules(url: string) {
+    window.open(url, "_blank");
+  }
+
   return (
     <DefaultLayout>
       <div className={styles.container}>
@@ -46,7 +50,7 @@ function Events() {
         </div>
 
         <div className={styles.subscribe}>
-          <button onClick={() => handleNavigate("/event-subscribe")}>
+          <button onClick={() => handleNavigate("/registrations")}>
             QUERO PARTICIPAR!
           </button>
         </div>
@@ -56,8 +60,8 @@ function Events() {
             <div key={event.id} className={styles.competition}>
               <img src={event.banner_url} alt={event.name} />
 
-              <div>
-                <div className={styles.info}>
+              <div className={styles.info}>
+                <div>
                   <strong>{event.name}</strong>
                   <p>{event.notes}</p>
                   <br />
@@ -72,6 +76,12 @@ function Events() {
                     </>
                   )}
                 </div>
+
+                {event.rules_url && (
+                  <button onClick={() => handleRules(event.rules_url)}>
+                    Ver Regras
+                  </button>
+                )}
               </div>
             </div>
           ))}

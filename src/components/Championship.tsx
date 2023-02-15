@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import { findAllEvents, IEvent } from "../services/event";
@@ -6,6 +7,8 @@ import { findAllEvents, IEvent } from "../services/event";
 import styles from "./Championship.module.css";
 
 export function Championship() {
+  const navigate = useNavigate();
+
   const [events, setEvents] = useState<IEvent[]>();
 
   useEffect(() => {
@@ -19,8 +22,15 @@ export function Championship() {
     findSetAllEvents();
   }, []);
 
+  function handleNavigate(path: string) {
+    navigate(path);
+  }
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      onClick={() => handleNavigate("/event-subscribe")}
+    >
       <div className={styles.left}>
         <div className={styles.head}>
           <img

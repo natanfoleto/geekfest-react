@@ -423,6 +423,7 @@ export function TabGame() {
           onSubmit={selectedGame ? handleSubmitEdit : handleSubmitAdd}
           className={styles.form}
         >
+          <label>Nome</label>
           <input
             name="name"
             type="text"
@@ -506,6 +507,7 @@ export function TabGame() {
             ))}
           </div>
 
+          <label>Link do Banner</label>
           <input
             name="bannerUrl"
             type="text"
