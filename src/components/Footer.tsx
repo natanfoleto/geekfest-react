@@ -9,7 +9,7 @@ export function Footer() {
         <span>Geek Fest Jaborandi - Todos os direitos reservados</span>
 
         <aside>
-          <span>CTech 2022</span>
+          <span>CTech 2023</span>
 
           <button
             className={styles.up}

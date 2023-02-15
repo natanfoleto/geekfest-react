@@ -1,6 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import permissionPower from "../utils/permissionPower";
 
 import { Plus, PencilLine, Trash } from "phosphor-react";
 

@@ -10,6 +10,8 @@ import { useAuth } from "../contexts/authentication";
 import { DeleteDialog } from "../components/DeleteDialog";
 import { TeamInfoModal } from "../components/TeamInfoModal";
 
+import { PermissionGate } from "../components/PermissionGate";
+
 import useMediaQuery from "../hooks/useMediaQuery";
 
 import {
@@ -515,8 +517,10 @@ function Team() {
     <DefaultLayout>
       <div className={styles.container}>
         <aside className={styles.aside}>
-          <button onClick={handleCreateTeam}>Criar Time</button>
-          <button onClick={handleCreateUserEvent}>Inscrever-se</button>
+          <PermissionGate permissions={["create-team", "subscribe-event"]}>
+            <button onClick={handleCreateTeam}>Criar Time</button>
+            <button onClick={handleCreateUserEvent}>Inscrever-se</button>
+          </PermissionGate>
         </aside>
 
         <main className={styles.main}>
@@ -572,14 +576,16 @@ function Team() {
                 </div>
               ))}
 
-              <div className={styles.buttonCard}>
-                <button
-                  className={styles.teamsButton}
-                  onClick={handleCreateTeam}
-                >
-                  Criar Time
-                </button>
-              </div>
+              <PermissionGate permissions={["create-team"]}>
+                <div className={styles.buttonCard}>
+                  <button
+                    className={styles.teamsButton}
+                    onClick={handleCreateTeam}
+                  >
+                    Criar Time
+                  </button>
+                </div>
+              </PermissionGate>
             </div>
 
             <div className={styles.usersTeams}>
@@ -639,22 +645,23 @@ function Team() {
                 </div>
               ))}
 
-              <div className={styles.buttonCard}>
-                <button
-                  className={styles.usersEventsSubscribe}
-                  onClick={handleCreateUserEvent}
-                >
-                  Inscrever-se
-                </button>
+              <PermissionGate permissions={["subscribe-event"]}>
+                <div className={styles.buttonCard}>
+                  <button
+                    className={styles.usersEventsSubscribe}
+                    onClick={handleCreateUserEvent}
+                  >
+                    Inscrever-se
+                  </button>
 
-                <button
-                  className={styles.usersEventsDelete}
-                  onClick={handleAllDeleteUserEvent}
-                  disabled={!usersEvents.length}
-                >
-                  Excluir todas
-                </button>
-              </div>
+                  <button
+                    className={styles.usersEventsDelete}
+                    onClick={handleAllDeleteUserEvent}
+                  >
+                    Excluir todas
+                  </button>
+                </div>
+              </PermissionGate>
             </div>
           </div>
         </main>

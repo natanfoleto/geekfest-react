@@ -19,7 +19,7 @@ function AuthRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/events" element={<Events />} />
       <Route path="/quests" element={<Quests />} />
-      <Route path="/games" element={<Games />} />
+      {/* <Route path="/games" element={<Games />} /> */}
       <Route path="/attractions" element={<Attractions />} />
       <Route path="/event-subscribe" element={<EventSubscribe />} />
       <Route path="/registrations" element={<Registrations />} />

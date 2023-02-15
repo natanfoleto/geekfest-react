@@ -1,6 +1,24 @@
+import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+
+import { findAllEvents, IEvent } from "../services/event";
+
 import styles from "./Championship.module.css";
 
 export function Championship() {
+  const [events, setEvents] = useState<IEvent[]>();
+
+  useEffect(() => {
+    async function findSetAllEvents() {
+      const { status, message, data } = await findAllEvents();
+
+      if (status === "error") toast.error(message);
+      if (status === "success") setEvents(data);
+    }
+
+    findSetAllEvents();
+  }, []);
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -27,11 +45,13 @@ export function Championship() {
 
         <div className={styles.games}>
           <ul>
-            <li>League of Legends | Jogador solo</li>
-            <li>Free Fire | Equipes de 4 a 5 jogadores</li>
-            <li>Concurso de KPOP | Grupo de 3 a 6 kpoppers</li>
-            <li>Concurso de Cosplay/Cosfun | Participante solo</li>
-            <li>Torneios da Gaming Room | Equipes ou solo</li>
+            {events?.map((event) => (
+              <li key={event.id}>
+                {event.name} {event.type === 0 && ""}
+                {event.type === 1 && "| Individual"}
+                {event.type === 2 && "| Times"}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

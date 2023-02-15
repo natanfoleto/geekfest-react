@@ -254,7 +254,7 @@ function Quests() {
               </div>
 
               <div className={styles.reward}>
-                <PermissionGate isFunction permissions={["award-quest"]}>
+                <PermissionGate permissions={["award-quest"]}>
                   <button
                     onClick={() => {
                       handleCreateUserQuest(quest);
@@ -264,7 +264,7 @@ function Quests() {
                   </button>
                 </PermissionGate>
 
-                <PermissionGate isFunction permissions={["view-completed"]}>
+                <PermissionGate permissions={["view-completed"]}>
                   <button
                     onClick={() => {
                       handleCompleted(quest);
@@ -329,7 +329,7 @@ function Quests() {
       >
         <div className={styles.completed}>
           {usersQuests?.length ? (
-            <PermissionGate isFunction permissions={["remove-completed"]}>
+            <PermissionGate permissions={["remove-completed"]}>
               <span>Clique no sinal de menos para remover</span>
             </PermissionGate>
           ) : (
@@ -339,7 +339,7 @@ function Quests() {
           {usersQuests?.length
             ? usersQuests.map((userQuest) => (
                 <div className={styles.completedList}>
-                  <PermissionGate isFunction permissions={["remove-completed"]}>
+                  <PermissionGate permissions={["remove-completed"]}>
                     <button onClick={() => handleDeleteUserQuest(userQuest)}>
                       <Minus size={12} weight="bold" />
                     </button>

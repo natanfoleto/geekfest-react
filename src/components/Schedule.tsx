@@ -14,14 +14,14 @@ export function Schedule() {
       <h2>Programações do evento</h2>
 
       <section>
-        <div onClick={() => handleNavigate("/games")} className={styles.card}>
+        {/* <div onClick={() => handleNavigate("/games")} className={styles.card}>
           <img src="https://wallpaperaccess.com/full/4334829.jpg" />
 
           <div className={styles.info}>
             <strong>Sala de jogos</strong>
             <span>Disponível das 9h às 18h</span>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.card}>
           <img src="https://media.istockphoto.com/vectors/cartoon-treasure-map-vector-id517044403" />
