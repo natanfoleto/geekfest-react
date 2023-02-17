@@ -29,6 +29,7 @@ export function Schedule() {
           <div className={styles.info}>
             <strong>Mapa do evento</strong>
             <span>Veja para onde quer ir</span>
+            <b>Em breve!</b>
           </div>
         </div>
       </section>

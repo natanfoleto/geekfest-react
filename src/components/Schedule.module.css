@@ -44,6 +44,10 @@
   font-size: 0.75rem;
 }
 
+.info b {
+  color: var(--red-300);
+}
+
 @media (max-width: 600px) {
   .container section {
     flex-direction: column;
