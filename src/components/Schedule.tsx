@@ -24,7 +24,7 @@ export function Schedule() {
         </div> */}
 
         <div className={styles.card}>
-          <img src="https://media.istockphoto.com/vectors/cartoon-treasure-map-vector-id517044403" />
+          <img src="https://i.imgur.com/76y79Bt.png" />
 
           <div className={styles.info}>
             <strong>Mapa do evento</strong>
