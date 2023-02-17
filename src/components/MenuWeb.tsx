@@ -37,7 +37,7 @@ function MenuWeb() {
 
       <aside className={styles.aside}>
         <NavLink to={`/me/${user?.username}`}>Meu perfil</NavLink>
-        <a href="http://wa.me/+5517992424418" target="_blank">
+        <a href="http://wa.me/+5517992685060" target="_blank">
           Help
           <p>
             <WhatsappLogo color="#1AD140" size={24} />

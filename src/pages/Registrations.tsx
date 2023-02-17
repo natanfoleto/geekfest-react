@@ -554,7 +554,7 @@ function Team() {
                 nickname
               </p>
               <br />
-              <h3>Times criado por min</h3>
+              <h3>Times criado por mim</h3>
 
               {teams?.length ? (
                 <div className={styles.teamsHeader}>
