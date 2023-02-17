@@ -35,12 +35,19 @@
 }
 
 .aside a {
+  position: relative;
   white-space: nowrap;
   text-decoration: none;
   color: var(--gray-500);
   transition: color 0.3s;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.aside a p {
+  position: absolute;
+  top: -17.5px;
+  right: -22.5px;
 }
 
 .aside a:hover {
@@ -59,7 +66,7 @@
   border: 0;
   border-radius: 6px;
   padding: 0.75rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
   font-weight: bold;
   cursor: pointer;
   color: var(--gray-100);

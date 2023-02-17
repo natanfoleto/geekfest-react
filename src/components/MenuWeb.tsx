@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { SignOut } from "phosphor-react";
+import { SignOut, WhatsappLogo } from "phosphor-react";
 
 import { useAuth } from "../contexts/authentication";
 
@@ -37,6 +37,12 @@ function MenuWeb() {
 
       <aside className={styles.aside}>
         <NavLink to={`/me/${user?.username}`}>Meu perfil</NavLink>
+        <a href="http://wa.me/+5517992424418" target="_blank">
+          Help
+          <p>
+            <WhatsappLogo color="#1AD140" size={24} />
+          </p>
+        </a>
         <button onClick={handleSignOut} className={styles.logout}>
           <SignOut />
           Logout

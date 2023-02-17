@@ -35,7 +35,18 @@
   width: auto;
   display: flex;
   align-items: center;
+  gap: 1rem;
   padding: 1rem 0;
+}
+
+.aside a {
+  position: relative;
+}
+
+.aside a p {
+  position: absolute;
+  top: -17.5px;
+  right: -22.5px;
 }
 
 .aside a {
