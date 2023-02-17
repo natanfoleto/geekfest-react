@@ -83,6 +83,10 @@
   margin-bottom: 4rem;
 }
 
+.teams b {
+  color: var(--red-300);
+}
+
 .teams h3 {
   padding: 0.25rem;
   margin-bottom: 0.25rem;
@@ -292,6 +296,10 @@
   line-height: 1.4;
   color: var(--gray-900);
   margin-bottom: 0.75rem;
+}
+
+.inputHidden {
+  display: none;
 }
 
 .select {

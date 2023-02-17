@@ -518,8 +518,10 @@ function Team() {
       <div className={styles.container}>
         <aside className={styles.aside}>
           <PermissionGate permissions={["create-team", "subscribe-event"]}>
-            <button onClick={handleCreateTeam}>Criar Time</button>
-            <button onClick={handleCreateUserEvent}>Inscrever-se</button>
+            <button onClick={handleCreateTeam}>Inscrever Time/Grupo</button>
+            <button onClick={handleCreateUserEvent}>
+              Inscrever-se Individualmente
+            </button>
           </PermissionGate>
         </aside>
 
@@ -546,6 +548,12 @@ function Team() {
             <h2>Inscrições de times</h2>
 
             <div className={styles.teams}>
+              <p>
+                <b>Atenção: </b>
+                Após a criação do time/grupo, o capitão deverá alterar seu
+                nickname
+              </p>
+              <br />
               <h3>Times criado por min</h3>
 
               {teams?.length ? (
@@ -772,7 +780,7 @@ function Team() {
                   filter
                   value={selectedUser}
                   onChange={(e) => handleUserChange(e.value)}
-                  options={users}
+                  options={users.filter((user) => user.group.name === "Geek")}
                   optionLabel="name"
                   placeholder="Escolha um usuário"
                   emptyMessage="Nenhum resultado encontrado"
@@ -836,15 +844,6 @@ function Team() {
           }
           className={styles.form}
         >
-          <input
-            name="nickname"
-            type="text"
-            value={nickname}
-            onChange={handleNicknameChange}
-            className={styles.input}
-            placeholder="Seu nickname"
-          />
-
           {!selectedUserEvent ? (
             <Dropdown
               filter
@@ -860,6 +859,16 @@ function Team() {
               itemTemplate={eventOptionTemplate}
             />
           ) : null}
+
+          <input
+            name="nickname"
+            type="text"
+            value={nickname}
+            onChange={handleNicknameChange}
+            className={selectedEvent ? styles.input : styles.inputHidden}
+            placeholder="Seu Nickname / Cosplay + Origem (Se participante do concurso)"
+            required
+          />
 
           <div className={styles.subimitDialog}>
             {selectedUserEvent ? (

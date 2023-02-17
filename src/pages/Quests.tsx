@@ -293,7 +293,7 @@ function Quests() {
           filter
           value={selectedUser}
           onChange={(e) => handleUserChange(e.value)}
-          options={users}
+          options={users.filter((user) => user.group.name === "Geek")}
           optionLabel="name"
           placeholder="Escolha um usuário"
           emptyMessage="Nenhum resultado encontrado"

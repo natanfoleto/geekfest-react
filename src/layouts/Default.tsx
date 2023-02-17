@@ -43,6 +43,14 @@ export function DefaultLayout({
         </PermissionGate>
       )}
 
+      <button
+        className={styles.up}
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      >
+        Voltar ao Topo
+      </button>
       <Footer />
     </div>
   );

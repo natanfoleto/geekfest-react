@@ -29,7 +29,7 @@ export function Championship() {
   return (
     <div
       className={styles.container}
-      onClick={() => handleNavigate("/event-subscribe")}
+      onClick={() => handleNavigate("/registrations")}
     >
       <div className={styles.left}>
         <div className={styles.head}>
