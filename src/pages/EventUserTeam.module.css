@@ -1,0 +1,123 @@
+.container {
+  width: 1120px;
+  min-height: 100vh;
+  padding: 64px 0 0 0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.title h1 {
+  white-space: nowrap;
+  color: var(--gray-300);
+}
+
+.mainCardHide {
+  margin: 3rem 0;
+  background: var(--gray-600);
+  padding: 2rem;
+  border-radius: 6px;
+}
+
+.mainCardHide h1 {
+  color: var(--gray-300);
+  margin-bottom: 0.5rem;
+}
+
+.mainCardHide div {
+  display: none;
+}
+
+.showLess {
+  color:var(--gray-300);
+  cursor: pointer;
+}
+
+.mainCard {
+  margin: 3rem 0;
+  background: var(--gray-600);
+  padding: 2rem;
+  border-radius: 6px;
+}
+
+.mainCard h1 {
+  color: var(--gray-300);
+  margin-bottom: 0.5rem;
+}
+
+.event {
+  display: flex;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+.event img {
+  width: 100px;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content h2 {
+  color: var(--gray-300);
+  margin-bottom: 0.5rem;
+}
+
+.itemContent h1 {
+  color: var(--green-300);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.itemContent div {
+  display: flex;
+  gap: 1rem;
+}
+
+.itemContent div p {
+  color: var(--gray-300);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.players {
+  display: flex;
+  flex-direction: column;
+  gap: 0 !important;
+  padding: 1rem;
+  border-radius: 4px;
+  background: var(--gray-300);
+}
+
+.players strong {
+  margin-bottom: 0.5rem;
+}
+
+.player {
+  display: flex;
+  gap: 0.5rem !important;
+  color: var(--gray-900);
+}
+
+@media (max-width: 400px) {
+  .mainCard { padding: 1rem; }
+}
+
+@media (max-width: 800px) {
+  img { display: none; }
+}

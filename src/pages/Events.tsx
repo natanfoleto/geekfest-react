@@ -75,6 +75,15 @@ function Events() {
                       </span>
                     </>
                   )}
+                  <p
+                    style={
+                      event.subscribed >= event.limit
+                        ? { color: "red" }
+                        : { color: "#a4c639" }
+                    }
+                  >
+                    Vagas restantes: {event.subscribed}/{event.limit}
+                  </p>
                 </div>
 
                 {event.rules_url && (

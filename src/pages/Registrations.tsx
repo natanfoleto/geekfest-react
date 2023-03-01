@@ -1,4 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Dialog } from "primereact/dialog";
 import { Dropdown } from "primereact/dropdown";
@@ -77,6 +78,8 @@ function Team() {
   const [deleteUserEventDialog, setDeleteUserEventDialog] = useState(false);
   const [deleteAllUserEventDialog, setDeleteAllUserEventDialog] =
     useState(false);
+  const navigate = useNavigate();
+
   const [teamInfoModal, setTeamInfoModal] = useState(false);
 
   // - Labels
@@ -513,14 +516,25 @@ function Team() {
     return true;
   }
 
+  function handleNavigate(path: string) {
+    navigate(path);
+  }
+
   return (
     <DefaultLayout>
       <div className={styles.container}>
         <aside className={styles.aside}>
-          <PermissionGate permissions={["create-team", "subscribe-event"]}>
+          <PermissionGate permissions={["create-team"]}>
             <button onClick={handleCreateTeam}>Inscrever Time/Grupo</button>
+          </PermissionGate>
+          <PermissionGate permissions={["subscribe-event"]}>
             <button onClick={handleCreateUserEvent}>
               Inscrever-se Individualmente
+            </button>
+          </PermissionGate>
+          <PermissionGate permissions={["view-event-users-teams"]}>
+            <button onClick={() => handleNavigate("/event-user-team")}>
+              Ver Todas Inscrições
             </button>
           </PermissionGate>
         </aside>

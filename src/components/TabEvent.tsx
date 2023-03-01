@@ -36,6 +36,7 @@ export function TabEvent() {
   const [type, setType] = useState(0);
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(0);
+  const [limit, setLimit] = useState(0);
   const [events, setEvents] = useState<IEvent[]>();
   const [selectedEvent, setSelectedEvent] = useState<IEvent | null>(null);
 
@@ -60,6 +61,10 @@ export function TabEvent() {
       matchMode: FilterMatchMode.STARTS_WITH,
     },
     max: {
+      value: null,
+      matchMode: FilterMatchMode.STARTS_WITH,
+    },
+    limit: {
       value: null,
       matchMode: FilterMatchMode.STARTS_WITH,
     },
@@ -113,6 +118,7 @@ export function TabEvent() {
       type,
       min,
       max,
+      limit,
     });
 
     if (status === "success") toast.success(message);
@@ -138,6 +144,7 @@ export function TabEvent() {
         type,
         min,
         max,
+        limit,
       });
 
       if (status === "error") toast.error(message);
@@ -201,6 +208,11 @@ export function TabEvent() {
     setMax(Number(event.target.value));
   }
 
+  function handleLimitChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
+    setLimit(Number(event.target.value));
+  }
+
   function selectEvent(e: DataTableSelectionChangeParams) {
     const { value } = e;
 
@@ -209,6 +221,7 @@ export function TabEvent() {
     setType(value.type);
     setMin(value.min);
     setMax(value.max);
+    setLimit(value.limit);
     setNotes(value.notes);
     setBannerUrl(value.banner_url);
     setRulesUrl(value.rules_url);
@@ -265,6 +278,10 @@ export function TabEvent() {
         matchMode: FilterMatchMode.STARTS_WITH,
       },
       max: {
+        value: null,
+        matchMode: FilterMatchMode.STARTS_WITH,
+      },
+      limit: {
         value: null,
         matchMode: FilterMatchMode.STARTS_WITH,
       },
@@ -356,6 +373,7 @@ export function TabEvent() {
           "type",
           "min",
           "max",
+          "limit",
           "notes",
           "banner_url",
           "rules_url",
@@ -387,7 +405,7 @@ export function TabEvent() {
           key="name"
           field="name"
           header="Nome"
-          style={{ width: "25%" }}
+          style={{ width: "20%" }}
           sortable
         />
         <Column
@@ -402,20 +420,27 @@ export function TabEvent() {
           key="min"
           field="min"
           header="Mínimo"
-          style={{ width: "10%" }}
+          style={{ width: "5%" }}
         />
         <Column
           align="center"
           key="max"
           field="max"
           header="Máximo"
-          style={{ width: "10%" }}
+          style={{ width: "5%" }}
+        />
+        <Column
+          align="center"
+          key="limit"
+          field="limit"
+          header="Limite"
+          style={{ width: "5%" }}
         />
         <Column
           key="notes"
           field="notes"
           header="Descrição"
-          style={{ width: "20%" }}
+          style={{ width: "30%" }}
           sortable
         />
         <Column
@@ -504,6 +529,17 @@ export function TabEvent() {
             className={styles.input}
             onChange={handleMaxChange}
             placeholder="Máximo de participantes"
+            required
+          />
+
+          <label>Limite de Inscrições</label>
+          <input
+            name="limit"
+            type="number"
+            value={limit}
+            className={styles.input}
+            onChange={handleLimitChange}
+            placeholder="Limite de incrições"
             required
           />
 
