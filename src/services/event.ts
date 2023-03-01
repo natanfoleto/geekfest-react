@@ -82,6 +82,7 @@ export interface IEventTeam {
   team: {
     name: string;
     user_team: {
+      nickname: string;
       user: {
         name: string;
         username: string;

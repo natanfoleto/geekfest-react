@@ -140,14 +140,24 @@ function EventUserTeam() {
                           </div>
 
                           <div className={styles.players}>
-                            <strong>Membros do time</strong>
+                            {teamEvent.user_team.length > 0 ? (
+                              <>
+                                <strong>Membros do time</strong>
 
-                            {teamEvent.user_team.map((userTeam, idx) => (
-                              <div className={styles.player}>
-                                {idx + 1} — <b>Nome:</b> {userTeam.user.name}{" "}
-                                <b>Username:</b> {userTeam.user.username}
-                              </div>
-                            ))}
+                                {teamEvent.user_team.map((userTeam, idx) => (
+                                  <div className={styles.player}>
+                                    {idx + 1} — <b>Nickname:</b>
+                                    {userTeam.nickname} <b>Nome:</b>{" "}
+                                    {userTeam.user.name} <b>Username:</b>{" "}
+                                    {userTeam.user.username}
+                                  </div>
+                                ))}
+                              </>
+                            ) : (
+                              <p style={{ color: "#e46363" }}>
+                                Nenhum membro no time ainda
+                              </p>
+                            )}
                           </div>
                         </div>
                       ))}

@@ -110,7 +110,7 @@
 
 .player {
   display: flex;
-  gap: 0.5rem !important;
+  gap: 0.25rem !important;
   color: var(--gray-900);
 }
 
