@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import InputMask from "react-input-mask";
 
 import { createUser } from "../services/user";
 
@@ -13,6 +14,7 @@ function Login() {
 
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -27,6 +29,7 @@ function Login() {
     const { status, message } = await createUser({
       username,
       name,
+      phone,
       birthDate,
       password,
       confirmPassword,
@@ -46,6 +49,11 @@ function Login() {
   function handleNameChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
     setName(event.target.value);
+  }
+
+  function handlePhoneChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
+    setPhone(event.target.value);
   }
 
   function handleDateChange(event: ChangeEvent<HTMLInputElement>) {
@@ -86,6 +94,17 @@ function Login() {
             onChange={handleNameChange}
             className={styles.input}
             placeholder="Digite seu nome completo"
+            required
+          />
+
+          <InputMask
+            mask="(99) 99999-9999"
+            name="phone"
+            type="text"
+            value={phone}
+            onChange={handlePhoneChange}
+            className={styles.input}
+            placeholder="(01) 12345-6789"
             required
           />
 

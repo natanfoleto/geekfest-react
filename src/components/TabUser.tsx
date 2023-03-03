@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import InputMask from "react-input-mask";
 
 import { Plus, PencilLine, Trash } from "phosphor-react";
 
@@ -31,6 +32,7 @@ import styles from "./Tab.module.css";
 export function TabUser() {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -112,6 +114,7 @@ export function TabUser() {
     const { status, message } = await createUser({
       username,
       name,
+      phone,
       birthDate,
       password,
       confirmPassword,
@@ -172,6 +175,11 @@ export function TabUser() {
   function handleNameChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
     setName(event.target.value);
+  }
+
+  function handlePhoneChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
+    setPhone(event.target.value);
   }
 
   function handleDateChange(event: ChangeEvent<HTMLInputElement>) {
@@ -442,6 +450,17 @@ export function TabUser() {
             className={styles.input}
             placeholder="Nome completo"
             required
+          />
+
+          <label>Telefone</label>
+          <InputMask
+            mask="(99) 99999-9999"
+            name="phone"
+            type="text"
+            value={phone}
+            onChange={handlePhoneChange}
+            className={styles.input}
+            placeholder="(01) 12345-6789"
           />
 
           {selectedUser ? (

@@ -16,6 +16,7 @@ export interface IUser {
 export interface ICreateUserRequest {
   username: string;
   name: string;
+  phone: string;
   birthDate: string;
   password: string;
   confirmPassword: string;
