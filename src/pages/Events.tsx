@@ -82,7 +82,7 @@ function Events() {
                         : { color: "#a4c639" }
                     }
                   >
-                    Vagas disponíveis: {event.subscribed}/{event.limit}
+                    Total de inscrições: {event.subscribed}/{event.limit}
                   </p>
                 </div>
 
