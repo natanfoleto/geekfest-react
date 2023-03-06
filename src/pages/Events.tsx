@@ -82,7 +82,7 @@ function Events() {
                         : { color: "#a4c639" }
                     }
                   >
-                    Vagas restantes: {event.subscribed}/{event.limit}
+                    Vagas disponíveis: {event.subscribed}/{event.limit}
                   </p>
                 </div>
 
