@@ -119,5 +119,5 @@
 }
 
 @media (max-width: 800px) {
-  img { display: none; }
+  .event img { display: none; }
 }

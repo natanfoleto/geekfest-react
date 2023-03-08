@@ -1,12 +1,21 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
+import { MapModal } from "../components/MapModal";
 
 import styles from "./Schedule.module.css";
 
 export function Schedule() {
   const navigate = useNavigate();
 
+  const [mapModal, setMapModal] = useState(false);
+
   function handleNavigate(path: string) {
     navigate(path);
+  }
+
+  function handleMap() {
+    setMapModal(!mapModal);
   }
 
   return (
@@ -23,16 +32,17 @@ export function Schedule() {
           </div>
         </div> */}
 
-        <div className={styles.card}>
+        <div className={styles.card} onClick={handleMap}>
           <img src="https://i.imgur.com/76y79Bt.png" />
 
           <div className={styles.info}>
             <strong>Mapa do evento</strong>
             <span>Veja para onde quer ir</span>
-            <b>Em breve!</b>
           </div>
         </div>
       </section>
+
+      <MapModal isOpen={mapModal} onClose={handleMap} />
     </div>
   );
 }
