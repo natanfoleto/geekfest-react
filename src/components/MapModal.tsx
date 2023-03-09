@@ -1,8 +1,8 @@
 import { X } from "phosphor-react";
 import useMediaQuery from "../hooks/useMediaQuery";
 
-import MapWidth from "../assets/map-w.png";
-import MapHeight from "../assets/map-h.png";
+import MapWidth from "../assets/map-w.jpg";
+import MapHeight from "../assets/map-h.jpg";
 
 import styles from "./MapModal.module.css";
 
@@ -26,7 +26,13 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
       onClick={handleOutsideClick}
       className={isOpen ? styles.container : styles.none}
     >
-      <X className={styles.close} onClick={onClose} size={24} weight="bold" />
+      <X
+        className={styles.close}
+        onClick={onClose}
+        size={24}
+        weight="bold"
+        color="#000"
+      />
 
       <img src={mediaQueryMap ? MapWidth : MapHeight} alt="Mapa do evento" />
     </div>
