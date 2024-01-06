@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "../pages/Home";
 import Events from "../pages/Events";
@@ -12,7 +12,6 @@ import Profile from "../pages/Profile";
 import Panel from "../pages/Panel";
 
 import Unauthorized from "../pages/Unauthorized";
-import NotFound from "../pages/NotFound";
 
 function AuthRoutes() {
   return (
@@ -29,7 +28,8 @@ function AuthRoutes() {
       <Route path="/panel" element={<Panel />} />
 
       <Route path="/unauthorized" element={<Unauthorized />} />
-      <Route path="*" element={<NotFound />} />
+      
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 }

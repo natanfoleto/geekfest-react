@@ -3,6 +3,10 @@
   padding: 64px 0 0 0;
 }
 
+.flex {
+  display: flex;
+}
+
 .title {
   display: flex;
   align-items: center;

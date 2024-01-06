@@ -31,7 +31,7 @@ function Panel() {
   }
 
   return (
-    <DefaultLayout noResponsiveContent buttonPanel={false}>
+    <DefaultLayout buttonPanel={false}>
       <PermissionGate permissions={["admin-panel"]} isPage>
         <div className={styles.container}>
           <Tabs

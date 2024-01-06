@@ -3,7 +3,8 @@ import { AppRoutes } from "./routes/index";
 
 import { AuthProvider } from "./contexts/authentication";
 
-import "./global.css";
+import "./styles/main.css";
+
 import "react-toastify/dist/ReactToastify.min.css";
 
 function App() {

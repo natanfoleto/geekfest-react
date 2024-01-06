@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://geekapi.jaborandi.sp.gov.br",
-  // baseURL: "http://localhost:3333",
+  // baseURL: "https://geekapi.jaborandi.sp.gov.br",
+  baseURL: "http://localhost:3333",
   headers: {
     Authorization: `Bearer ${JSON.parse(
       localStorage.getItem("token") as string

@@ -8,35 +8,30 @@ import { Footer } from "../components/Footer";
 
 import { PermissionGate } from "../components/PermissionGate";
 
-import styles from "./Default.module.css";
-
 interface DefaultLayoutProps {
   children: React.ReactNode;
-  noResponsiveContent?: boolean;
   buttonPanel?: boolean;
 }
 
 export function DefaultLayout({
   children,
-  noResponsiveContent = false,
   buttonPanel = true,
 }: DefaultLayoutProps) {
   return (
-    <div className={styles.wrapper}>
+    <div className="relative min-h-screen bg-login bg-cover bg-no-repeat bg-fixed">
       <Header />
 
-      <div
-        className={
-          noResponsiveContent ? styles.containerNoResponsive : styles.container
-        }
-      >
+      <div className="min-h-[calc(100vh - 64px - 76px)] flex justify-center px-5">
         {children}
       </div>
 
       {buttonPanel && (
         <PermissionGate permissions={["admin-panel"]}>
-          <div className={styles.panel}>
-            <NavLink to={"/panel"}>
+          <div>
+            <NavLink 
+              to={"/panel"} 
+              className="fixed bottom-2 right-2 rounded-lg p-1 bg-emerald-500 cursor-pointer"
+            >
               <GameController size={36} color="#FFF" />
             </NavLink>
           </div>
@@ -44,7 +39,7 @@ export function DefaultLayout({
       )}
 
       <button
-        className={styles.up}
+        className="fixed bottom-2 left-2 flex p-2 border-0 outline-0 rounded-md text-zinc-200 bg-zinc-700 cursor-pointer transition-all hover:bg-zinc-800"
         onClick={() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
