@@ -89,26 +89,27 @@ export function TeamInfoModal({
     <div
       id={id}
       onClick={handleOutsideClick}
-      className={isOpen ? styles.container : styles.none}
+      className={isOpen ? "w-full h-screen fixed top-0 left-0 bg-black opacity-100 transition-[opacity 0.5s linear] p-4 flex items-center justify-center" : "hidden"}
     >
-      <div className={styles.content}>
-        <X className={styles.close} onClick={onClose} size={24} />
+      <div className="rounded-sm bg-zinc-900 p-8 relative flex flex-col justify-center">
+        <X className="absolute top-[15px] right-[15px] text-zinc-100 cursor-pointer" onClick={onClose} size={24} />
 
-        <h1 className={styles.teamName}>{userTeam?.team.name}</h1>
+        <h1 className="mt-4 text-zinc-100 text-2xl">{userTeam?.team.name}</h1>
 
-        <div className={styles.body}>
-          <div className={styles.capitain}>
-            <h1>Informações do capitão</h1>
+        <div className="mt-4 flex gap-8">
+          <div>
+            <h1 className="text-zinc-100 text-base mb-3">Informações do capitão</h1>
 
-            <p>{userTeam?.team.user.name}</p>
-            <p>{userTeam?.team.user.phone}</p>
+            <p className="text-zinc-300">{userTeam?.team.user.name}</p>
+            <p className="text-zinc-300">{userTeam?.team.user.phone}</p>
           </div>
 
           <div className={styles.event}>
-            <h1>Evento ou competição</h1>
+            <h1 className="text-zinc-100 text-base mb-3">Evento ou competição</h1>
 
-            <div className={styles.eventInfo}>
+            <div className="max-w-[50vw] flex gap-2">
               <img
+              className="rounded-lg w-12 object-cover"
                 src={
                   userTeam?.team.event.banner_url
                     ? userTeam?.team.event.banner_url
@@ -116,24 +117,25 @@ export function TeamInfoModal({
                 }
               />
 
-              <div>
-                <p>{userTeam?.team.event.name}</p>
-                <p>{userTeam?.team.event.notes}</p>
+              <div className="flex flex-col gap-2">
+                <p className="text-zinc-300">{userTeam?.team.event.name}</p>
+                <p className="text-zinc-300">{userTeam?.team.event.notes}</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div className={styles.nickname}>
-          <strong>Meu nickname</strong>
-          <p>{userTeam?.nickname}</p>
+        <div className="mt-4 mb-2">
+          <strong className="text-zinc-100">Meu nickname</strong>
+          <p className="text-zinc-300">{userTeam?.nickname}</p>
         </div>
 
         <form
           onSubmit={handleSubmitUpdateNickname}
-          className={styles.changeNickname}
+          className="flex items-center gap-2"
         >
           <input
+            className="outline-0 py-1 px-2 rounded border-0"
             name="nickname"
             type="text"
             placeholder="Novo nickname"
@@ -141,14 +143,13 @@ export function TeamInfoModal({
             onChange={handleNicknameChange}
             required
           />
-          <button type="submit">Alterar nickname</button>
+          <button className="border-0 rounded py-1 px-2 bg-blue-300 text-zinc-300 cursor-pointer hover:bg-blue-500 transition-[0.2s]" type="submit">Alterar nickname</button>
         </form>
 
         <div
-          className={styles.leaveTeam}
           onClick={() => setDeleteUserTeamDialog(true)}
         >
-          <button type="submit">Sair do time</button>
+          <button className="border-0 rounded mt-4 py-1 px-2 bg-red-300 text-zinc-300 cursor-pointer" type="submit">Sair do time</button>
         </div>
 
         <span>
