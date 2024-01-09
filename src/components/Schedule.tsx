@@ -20,24 +20,24 @@ export function Schedule() {
 
   return (
     <div className={styles.container}>
-      <h2>Programações do evento</h2>
+      <h2 className="text-zinc-100 mb-6">Programações do evento</h2>
 
-      <section>
+      <section className="flex gap-3">
         {/* <div onClick={() => handleNavigate("/games")} className={styles.card}>
           <img src="https://wallpaperaccess.com/full/4334829.jpg" />
 
-          <div className={styles.info}>
-            <strong>Sala de jogos</strong>
-            <span>Disponível das 9h às 18h</span>
+          <div className="flex flex-col gap-[6px] py-3 px-4">
+            <strong className="text-zinc-100">Sala de jogos</strong>
+            <span className="text-zinc-400 text-xs">Disponível das 9h às 18h</span>
           </div>
         </div> */}
 
-        <div className={styles.card} onClick={handleMap}>
+        <div className="w-[264px] rounded-md bg-zinc-600 transition-[box-shadow 0.2s] hover:cursor-pointer shadow-[0px 0px 0px 2px #04C04D]" onClick={handleMap}>
           <img src="https://i.imgur.com/76y79Bt.png" />
 
-          <div className={styles.info}>
-            <strong>Mapa do evento</strong>
-            <span>Veja para onde quer ir</span>
+          <div className="flex flex-col gap-[6px] py-3 px-4">
+            <strong className="text-zinc-100">Mapa do evento</strong>
+            <span className="text-zinc-400 text-xs">Veja para onde quer ir</span>
           </div>
         </div>
       </section>
