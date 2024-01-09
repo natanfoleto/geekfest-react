@@ -1,7 +1,4 @@
-# Projeto Geek Fest Jaborandi
 # geekfest-react
-
-# Projeto Geek Fest Jaborandi
 
 ## How to run?
 
