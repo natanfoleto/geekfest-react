@@ -22,12 +22,12 @@ export function DeleteDialog({
   onDelete,
 }: DeleteDialogProps) {
   const deleteUserFooter = (
-    <div className={styles.deleteUserFooter}>
-      <button onClick={onHide}>
+    <div className="flex justify-end">
+      <button className="flex gap-1 outline-0 border-0 w-24 p-4 font-bold rounded cursor-pointer text-purple-300 bg-white hover:bg-purple-300 hover:text-white disabled:cursor-not-allowed opacity-50 " onClick={onHide}>
         <X size={18} weight="fill" /> Não
       </button>
 
-      <button onClick={onDelete}>
+      <button className="flex gap-1 outline-0 border-0 w-24 p-4 font-bold rounded cursor-pointer text-purple-300 bg-white hover:bg-purple-300 hover:text-white disabled:cursor-not-allowed opacity-50  " onClick={onDelete}>
         <Check size={18} weight="fill" /> Sim
       </button>
     </div>

@@ -34,8 +34,9 @@ export function GameBannerModal({
       onClick={handleOutsideClick}
       className={isOpen ? styles.container : styles.none}
     >
-      <div className={styles.content}>
-        <X className={styles.close} onClick={onClose} size={24} />
+      <div className="rounded-sm bg-zinc-900 p-8 relative flex flex-col justify-center">
+      
+        <X className="absolute top-4 right-4 text-zinc-100 cursor-pointer" onClick={onClose} size={24} />
 
         <img
           src={
@@ -43,20 +44,20 @@ export function GameBannerModal({
               ? bannerUrl
               : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQomRIT4OKajo2mGAToSVe48g_SBEMF3PJO1vRPLTJe420MpxJsj7McYZ57_ibN3UVgJrQ&usqp=CAU"
           }
-          className={styles.cover}
+          className="rounded-lg h-64 object-cover mt-4 mr-4 mb-8 ml-4"
         />
 
-        <div className={styles.info}>
-          <strong>{title}</strong>
-          <span>{modality}</span>
-          <div className={styles.schedules}>
-            <strong>Horários de funcionamento</strong>
+        <div>
+          <strong className="flex text-zinc-300">{title}</strong>
+          <span className="block text-zinc-500">{modality}</span>
+          <div className="flex flex-col mt-4">
+            <strong className="mb-2">Horários de funcionamento</strong>
 
             {schedules.map((item) => (
-              <div>
-                <span>{item.hour_start}</span>
-                <span>•</span>
-                <span>{item.hour_end}</span>
+              <div className="flex gap-2 text-zinc-500">
+                <span className="text-zinc-500 leading-snug">{item.hour_start}</span>
+                <span className="text-zinc-500 leading-snug">•</span>
+                <span className="text-zinc-500 leading-snug">{item.hour_end}</span>
               </div>
             ))}
           </div>

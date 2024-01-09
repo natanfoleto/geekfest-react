@@ -27,7 +27,7 @@ export function MapModal({ isOpen, onClose }: MapModalProps) {
       className={isOpen ? styles.container : styles.none}
     >
       <X
-        className={styles.close}
+        className="absolute top-4 right-4 text-zinc-100 cursor-pointer border-2 border-solid border-black rounded-[50px]"
         onClick={onClose}
         size={24}
         weight="bold"

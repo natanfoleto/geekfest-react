@@ -23,12 +23,6 @@
   justify-content: center;
 }
 
-.content aside {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .up {
   display: flex;
   margin-left: 32px;
